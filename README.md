@@ -1,6 +1,9 @@
 ## PostgreSQL Server Configuration
 
-### Define PostgreSQL role that has at least the `REPLICATION` and `LOGIN`` permissions
+### Define PostgreSQL role that has at least the `REPLICATION` and `LOGIN` permissions.
+
+For example we create role with the name `DEBEZIUM_LISTEN`, and assign the user we created to that role
+
 ```sql
 CREATE USER <debezium_user_you_created>;
 
