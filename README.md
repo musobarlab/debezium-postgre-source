@@ -1,5 +1,38 @@
-### Start services
+## PostgreSQL Server Configuration
 
+### Define PostgreSQL role that has at least the `REPLICATION` and `LOGIN`` permissions
+```sql
+CREATE USER <debezium_user_you_created>;
+
+CREATE ROLE DEBEZIUM_LISTEN REPLICATION LOGIN;
+
+GRANT DEBEZIUM_LISTEN TO <debezium_user_you_created>;
+```
+
+### Replication Configuration.
+
+`postgresql.conf`
+```
+# REPLICATION
+wal_level = logical
+
+# for increasing the number of connectors that can access the sending server concurrently
+max_wal_senders = 1 
+max_replication_slots = 1 
+```
+
+### Add entries to the pg_hba.conf file to specify the Debezium connector hosts that can replicate with the database host.
+
+`pg_hba.conf`
+```
+# Allow replication connections from localhost, by a user with the replication privilege.
+local   replication     <debezium_user_you_created>                                     trust
+host    replication     <debezium_user_you_created>             127.0.0.1/32            trust
+host    replication     <debezium_user_you_created>             ::1/128                 trust
+
+```
+
+### Start services & and simultaneously execute all the configuration requirements above. Open `postgre-docker` folder for details
 ```shell
 $ docker-compose up
 ```
