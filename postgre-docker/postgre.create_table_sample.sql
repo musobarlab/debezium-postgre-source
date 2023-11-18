@@ -10,3 +10,6 @@ CREATE TABLE IF NOT EXISTS PERSON (
     NAME VARCHAR(255) NOT NULL,
     CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Create Publication --
+CREATE PUBLICATION myindibiz_dbz_publication FOR TABLE "public"."movie", "public"."person";

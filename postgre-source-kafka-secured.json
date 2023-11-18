@@ -10,6 +10,8 @@
         "database.user": "codebaseuser",
         "database.password": "12345678",
         "database.dbname": "debeziumtest",
+        "publication.name": "myindibiz_dbz_publication",
+        "publication.autocreate.mode": "filtered",
         "table.include.list": "public.movie,public.person",
         "database.history.kafka.bootstrap.servers": "kafka1:9093,kafka2:9093,kafka3:9093",
         "database.history.kafka.topic": "schema-changes.postgre-debeziumtest-source",
