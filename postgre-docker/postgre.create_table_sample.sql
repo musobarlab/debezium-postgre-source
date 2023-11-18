@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS PERSON (
 );
 
 -- Create Publication --
-CREATE PUBLICATION myindibiz_dbz_publication FOR TABLE "public"."movie", "public"."person";
+CREATE PUBLICATION myproduct_dbz_publication FOR TABLE "public"."movie", "public"."person";
